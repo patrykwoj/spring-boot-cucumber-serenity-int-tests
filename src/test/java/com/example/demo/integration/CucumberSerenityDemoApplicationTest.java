@@ -6,8 +6,8 @@ import cucumber.api.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = {"src/test/resources/features/RetrievalOfProducts.feature"})
-public class StackoverflowApplicationTest {
+@CucumberOptions(features = {"src/test/resources/features/Products.feature"})
+public class CucumberSerenityDemoApplicationTest {
 
 }
 

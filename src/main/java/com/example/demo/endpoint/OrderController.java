@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.endpoint.component.Basket;
+import com.example.demo.endpoint.component.Order;
 import com.example.demo.exception.OrderException;
 import com.example.demo.exception.ProductException;
 import com.example.demo.model.OrderRequest;
@@ -23,15 +23,15 @@ import com.example.demo.model.Product;
 public class OrderController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(OrderController.class);
-	private Basket basket;
+	private Order basket;
 	private ProductController productController;
 
-	OrderController(Basket basket, ProductController productController) {
+	OrderController(Order basket, ProductController productController) {
 		this.basket = basket;
 		this.productController = productController;
 	}
 
-	@PostMapping(value = "/order/process", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value = "/order/add", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<OrderResponse> processOrder(@RequestBody OrderRequest request)
 			throws OrderException, ProductException, IOException {
 

@@ -14,7 +14,7 @@ import lombok.Data;
 @Component
 @SessionScope
 @Data
-public class Basket {
+public class Order {
 	private Integer orderId = ThreadLocalRandom.current().nextInt(Integer.MAX_VALUE);
 	private Double totalPrice = 0.0;
 	private Map<Product, Integer> products = new HashMap<>();
