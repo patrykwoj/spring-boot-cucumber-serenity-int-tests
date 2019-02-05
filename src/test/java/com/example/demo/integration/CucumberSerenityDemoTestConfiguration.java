@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.Profile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -19,6 +20,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.ObjectMapperConfig;
 import io.restassured.config.RestAssuredConfig;
+import io.restassured.http.ContentType;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.mapper.factory.Jackson2ObjectMapperFactory;
 import net.serenitybdd.rest.SerenityRest;
@@ -41,8 +43,12 @@ public class CucumberSerenityDemoTestConfiguration {
 	public void configureSerenityRest() {
 		SerenityRest.setDefaultConfig(restAssuredConfig());
 		SerenityRest.setDefaultPort(port);
-		SerenityRest.setDefaultRequestSpecification(new RequestSpecBuilder().setBaseUri(baseUri)
-				.setRelaxedHTTPSValidation().addHeaders(commonHeaders()).build());
+		SerenityRest.setDefaultRequestSpecification(new RequestSpecBuilder()
+				.setBaseUri(baseUri)
+				.setRelaxedHTTPSValidation()
+				.setContentType(ContentType.JSON)
+				.addHeaders(commonHeaders())
+				.build());
 		LOGGER.info("Serenity rest client instance was succesfully configured to work on: " + baseUri + ":" + port);
 	}
 

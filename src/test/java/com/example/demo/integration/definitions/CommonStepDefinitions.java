@@ -17,17 +17,17 @@ public class CommonStepDefinitions extends CucumberRoot {
 		commonSteps.login(user);
 	}
 	
-	@Then("^I receive empty response$")
-	public void user_receives_empty_response() {
+	@And("^response body is empty$")
+	public void user_receives_empty_response_body() {
 		commonSteps.responseIsEmpty();
 	}
 
-	@Then("^I receive not empty response$")
-	public void user_receives_not_empty_response() {
+	@And("^response body is not empty$")
+	public void user_receives_not_empty_response_body() {
 		commonSteps.responseIsNotEmpty();
 	}
 	
-	@And("^response status is (\\d+)$")
+	@Then("^I receive response status (\\d+)$")
 	public void response_has_http_status(Integer httpStatus) {
 		commonSteps.responseHttpStatusEquals(httpStatus);
 	}

@@ -3,7 +3,6 @@ package com.example.demo.integration.definitions;
 import com.example.demo.integration.definitions.steps.ProductApiSteps;
 
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
